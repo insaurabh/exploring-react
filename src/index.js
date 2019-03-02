@@ -1,12 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// eslint-disable-next-line 
+import faker from 'faker';
+// eslint-disable-next-line 
+import CommentDetails from './CommentDetails';
+// eslint-disable-next-line
+import ApprovalCard from './ApprovalCard';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+// class based component
+class App extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = { lat : 1 };
+		
+		// called once
+		window.navigator.geolocation.getCurrentPosition(
+		position => console.log(position),
+			err => console.log(err)
+		);
+	}
+
+	render() {
+
+	return (
+		<div className="ui container comments">
+			Latitude : { this.state.lat }
+		</div>
+	);
+
+	}
+}
+ReactDOM.render(
+	<App />, 
+	document.querySelector('#root')
+);
+
