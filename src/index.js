@@ -7,6 +7,9 @@ import faker from 'faker';
 import CommentDetails from './CommentDetails';
 // eslint-disable-next-line
 import ApprovalCard from './ApprovalCard';
+import DetailCard from './DetailCard';
+import Loading from './Loading';
+
 
 
 
@@ -16,25 +19,43 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { lat : 1 };
+		this.state = { lat : null, errorMessage: '', date: new Date() };
 		
 		// called once
 		window.navigator.geolocation.getCurrentPosition(
-		position => console.log(position),
-			err => console.log(err)
+		position => {
+			this.setState({ lat: position.coords.latitude });
+		},
+		err => {
+			console.log('Errors Not good');
+			console.log(err)
+			this.setState({ errorMessage: err.message });
+		}
 		);
 	}
 
 	render() {
+		
+		if (this.state.errorMessage && !this.state.lat) {
+			return (
+				<div>
+					Error : { this.state.errorMessage }
+				</div>
+			);
+		}
 
-	return (
-		<div className="ui container comments">
-			Latitude : { this.state.lat }
-		</div>
-	);
+		if (!this.state.errorMessage && this.state.lat) {
+			return (
+				<DetailCard lat={this.state.lat} />
+			);
+		}
 
+		return (
+			<Loading />
+		);
 	}
 }
+
 ReactDOM.render(
 	<App />, 
 	document.querySelector('#root')
