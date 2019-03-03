@@ -66,3 +66,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+### `What ?`
+
+Do not mutate state directly. Use setState() 
+
+this.setState({ lat: position.coords.latitude }); :: Right way
+this.state.lat = position.coords.latitude; :: Not a way
