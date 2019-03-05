@@ -10,8 +10,7 @@ import ApprovalCard from './ApprovalCard';
 import DetailCard from './DetailCard';
 import Loading from './Loading';
 
-
-
+import Error from './Error';
 
 // class based component
 class App extends React.Component {
@@ -38,9 +37,7 @@ class App extends React.Component {
 		
 		if (this.state.errorMessage && !this.state.lat) {
 			return (
-				<div>
-					Error : { this.state.errorMessage }
-				</div>
+				<Error message={this.state.errorMessage} />
 			);
 		}
 
@@ -51,7 +48,7 @@ class App extends React.Component {
 		}
 
 		return (
-			<Loading />
+			<Loading message='Please allow us to trask you.' />
 		);
 	}
 }
