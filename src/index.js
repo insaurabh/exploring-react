@@ -33,8 +33,8 @@ class App extends React.Component {
 		);
 	}
 
-	render() {
-		
+	renderContent() {
+
 		if (this.state.errorMessage && !this.state.lat) {
 			return (
 				<Error message={this.state.errorMessage} />
@@ -50,6 +50,14 @@ class App extends React.Component {
 		return (
 			<Loading message='Please allow us to trask you.' />
 		);
+	}
+
+	render() {
+		return (
+			<div className="contentWrapper">
+				{ this.renderContent() }
+			</div>
+		);	
 	}
 }
 
