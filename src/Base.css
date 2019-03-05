@@ -1,0 +1,14 @@
+.icon-left {
+	position: absolute;
+	top : 10px;
+	left: 10px;
+}
+
+.ui.card.center {
+    margin: 0 auto;
+}
+
+
+i.center.massive.map.marker.alternate.icon {
+    margin: 0 auto;
+}
