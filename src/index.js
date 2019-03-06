@@ -9,6 +9,7 @@ import CommentDetails from './CommentDetails';
 import ApprovalCard from './ApprovalCard';
 import DetailCard from './DetailCard';
 import Loading from './Loading';
+import SeassonCard from './SeassonCard';
 
 
 
@@ -16,21 +17,20 @@ import Loading from './Loading';
 // class based component
 class App extends React.Component {
 
-	constructor(props) {
-		super(props);
+	state = { lat : null, errorMessage: '', date: new Date() };
 
-		this.state = { lat : null, errorMessage: '', date: new Date() };
-		
+	componentDidMount() {
+		console.log('Hello')
 		// called once
 		window.navigator.geolocation.getCurrentPosition(
-		position => {
-			this.setState({ lat: position.coords.latitude });
-		},
-		err => {
-			console.log('Errors Not good');
-			console.log(err)
-			this.setState({ errorMessage: err.message });
-		}
+			position => {
+				this.setState({ lat: position.coords.latitude });
+			},
+			err => {
+				console.log('Errors Not good');
+				console.log(err)
+				this.setState({ errorMessage: err.message });
+			}
 		);
 	}
 
@@ -51,7 +51,7 @@ class App extends React.Component {
 		}
 
 		return (
-			<Loading />
+			<SeassonCard />
 		);
 	}
 }
