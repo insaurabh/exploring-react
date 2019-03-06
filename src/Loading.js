@@ -2,16 +2,13 @@ import React from 'react';
 
 const Loading = (props) => {
   return (
-  <div className="ui icon message">
-  <i className="notched circle loading icon"></i>
-  <div className="content">
-    <div className="header">
-      Just one second
-    </div>
-    <p>We're fetching that content for you.</p>
-  </div>
-  </div>
+      <div className="ui active dimmer">
+        <div className="ui indeterminate text loader">{ props.message }</div>
+      </div>
   );
 }
 
+Loading.defaultProps = {
+  message: 'Loading...'
+}
 export default Loading;
