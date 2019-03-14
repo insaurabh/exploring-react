@@ -76,4 +76,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 Do not mutate state directly. Use setState() 
 
 this.setState({ lat: position.coords.latitude }); :: Right way
-this.state.lat = position.coords.latitude; :: Not a way
+this.state.lat = position.coords.latitude; :: Not a way# react-sublime-snippet
