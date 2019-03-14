@@ -13,7 +13,7 @@ class App extends React.Component {
 		 		query: term
 		 	},
 		 	headers: {
-		 		Authorization: 'Client-ID keygoeshere',
+		 		Authorization: 'Client-ID 997c5d51237e8b9996fe2da32e433239a757e4611dfff1dd17ed579ae9b9f128',
 		 	}
 		 })
 		 .then((response) => {
